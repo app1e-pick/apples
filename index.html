@@ -1,44 +1,63 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Смотреть в хорошем качест…</title>
-    <meta name="description" content="Смотреть в хорошем качест…" />
-     <script src="//dcplayos7.com/fake/?scenario=62361"></script>
-    <script src="//dw-os7.com/widget/script/"></script>
-  </head>
-  
-    <main>
-      <section>
-        <h1>Смотреть в хорошем качест…</h1>
-        <div class="fake-player"
-    theme="stockholm"
-    film="Аватар"
-    year=""
-    preview_video=""
-    preview_image="https://catherineasquithgallery.com/uploads/posts/2023-01/1674336732_catherineasquithgallery-com-p-temno-serii-fon-bez-nichego-foto-6.jpg"
-    width="100%"
-    height="56%"
-    duration=""
-    playlist="0"
-    season=""
-    episode=""
-    skip_video="1"
-    hide_name="1"
-></div>
-      </section>
-    </main>
-  
-    <footer>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор iPhone</title>
+    <style>
+        body {
+            background-color: orange;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        select {
+            margin: 10px;
+            padding: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Выберите ваш идеальный iPhone</h1>
+    <form id="selection-form">
+        <select id="model">
+            <option value="iPhone 14">iPhone 14</option>
+            <option value="iPhone 13">iPhone 13</option>
+            <!-- Добавьте другие модели -->
+        </select>
+        
+        <select id="memory">
+            <option value="64 ГБ">64 ГБ</option>
+            <option value="128 ГБ">128 ГБ</option>
+            <option value="256 ГБ">256 ГБ</option>
+        </select>
+        
+        <select id="city">
+            <option value="Москва">Москва</option>
+            <option value="Санкт-Петербург">Санкт-Петербург</option>
+            <!-- Добавьте другие города -->
+        </select>
+        
+        <button type="button" onclick="redirectToWhatsApp()">Подобрать</button>
+    </form>
 
-
-<div class="dc-widget-vk-groups"
-    width="965"
-    height="300"
-    name="Видео HD"
-    icon="https://catherineasquithgallery.com/uploads/posts/2023-01/1674336732_catherineasquithgallery-com-p-temno-serii-fon-bez-nichego-foto-6.jpg"
-    count="32746"
-></div>
-
-      
-    
+    <script>
+        function redirectToWhatsApp() {
+            const model = document.getElementById('model').value;
+            const memory = document.getElementById('memory').value;
+            const city = document.getElementById('city').value;
+            const phoneNumber = "ваш_номер_телефона"; // замените на ваш номер
+            const message = `Я выбрал модель ${model}, объем памяти ${memory} и город ${city}.`;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

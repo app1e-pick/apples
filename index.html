@@ -64,16 +64,16 @@
             <!-- Добавьте другие города -->
         </select>
         
-        <button id="submit-button" type="button" onclick="redirectToWhatsApp()">Подобрать</button>
+        <button id="submit-button" type="button" onclick="redirectToInstagram()">Подобрать</button>
         <div class="error-message" id="error-message">Не все параметры выбраны</div>
     </form>
 
     <script>
-        function redirectToWhatsApp() {
+        function redirectToInstagram() {
             const model = document.getElementById('model').value;
             const memory = document.getElementById('memory').value;
             const city = document.getElementById('city').value;
-            const phoneNumber = "ваш_номер_телефона"; // замените на ваш номер
+            const instagramUsername = "ваш_пользователь_инстаграма"; // замените на ваш Instagram username
 
             const errorMessage = document.getElementById('error-message');
             if (!model || !memory || !city) {
@@ -81,7 +81,7 @@
             } else {
                 errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
                 const message = `Я выбрал модель ${model}, объем памяти ${memory} и город ${city}.`;
-                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                const url = `https://instagram.com/${instagramUsername}/?text=${encodeURIComponent(message)}`;
                 window.location.href = url;
             }
         }

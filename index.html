@@ -33,63 +33,57 @@
             max-width: 300px;
             transition: background-color 0.3s;
         }
-        button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none; /* Скрыто по умолчанию */
         }
     </style>
 </head>
 <body>
     <h1>Выберите ваш идеальный iPhone</h1>
     <form id="selection-form">
-        <select id="model" onchange="checkSelection()">
+        <select id="model">
             <option value="">Какой нужен айфон</option>
             <option value="iPhone 14">iPhone 14</option>
             <option value="iPhone 13">iPhone 13</option>
             <!-- Добавьте другие модели -->
         </select>
         
-        <select id="memory" onchange="checkSelection()">
+        <select id="memory">
             <option value="">Какой нужен объем</option>
             <option value="64 ГБ">64 ГБ</option>
             <option value="128 ГБ">128 ГБ</option>
             <option value="256 ГБ">256 ГБ</option>
         </select>
         
-        <select id="city" onchange="checkSelection()">
+        <select id="city">
             <option value="">С какого вы города</option>
             <option value="Москва">Москва</option>
             <option value="Санкт-Петербург">Санкт-Петербург</option>
             <!-- Добавьте другие города -->
         </select>
         
-        <button id="submit-button" type="button" disabled onclick="redirectToWhatsApp()">Подобрать</button>
+        <button id="submit-button" type="button" onclick="redirectToWhatsApp()">Подобрать</button>
+        <div class="error-message" id="error-message">Не все параметры выбраны</div>
     </form>
 
     <script>
-        function checkSelection() {
-            const model = document.getElementById('model').value;
-            const memory = document.getElementById('memory').value;
-            const city = document.getElementById('city').value;
-            const button = document.getElementById('submit-button');
-
-            button.disabled = !model || !memory || !city; // Кнопка активна только если все параметры выбраны
-        }
-
         function redirectToWhatsApp() {
             const model = document.getElementById('model').value;
             const memory = document.getElementById('memory').value;
             const city = document.getElementById('city').value;
             const phoneNumber = "ваш_номер_телефона"; // замените на ваш номер
 
+            const errorMessage = document.getElementById('error-message');
             if (!model || !memory || !city) {
-                alert("Не все параметры выбраны"); // Сообщение об ошибке
-                return;
+                errorMessage.style.display = 'block'; // Показываем сообщение об ошибке
+            } else {
+                errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
+                const message = `Я выбрал модель ${model}, объем памяти ${memory} и город ${city}.`;
+                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.location.href = url;
             }
-
-            const message = `Я выбрал модель ${model}, объем памяти ${memory} и город ${city}.`;
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.location.href = url;
         }
     </script>
 </body>

@@ -39,77 +39,14 @@
             margin-top: 10px;
             display: none; /* Скрыто по умолчанию */
         }
+        .highlighted-text {
+            border: 2px solid rgba(0, 0, 0, 0.2); /* Прозрачная рамка */
+            padding: 10px;
+            margin-top: 20px;
+            display: inline-block;
+            max-width: 90%;
+        }
     </style>
 </head>
 <body>
-    <h1>Выберите ваш идеальный iPhone</h1>
-
-    <p>Хотите купить iPhone но цены дорогие и боитесь попасть на брак?
-
-<p>Мы предлагаем подбор б/у техники Apple под ключ с гарантией переподбора месяц. Наши подборщики предложат вам оригинальный Айфон, ориентируясь на: родные батареи не менее 80%, без ремонта, с документами.
-
-
-<p>Также хочу подчеркнуть, что подобранный нами iPhone обойдется вам по низу рынка - дешево, нежели вы сами его приобретете. Т.к. наши мастера знают как и где купить полностью исправный гаджет за отличную цену, а также как при необходимости сторговать цену.
-
-<p>Таким образом вы получаете полностью исправный гаджет, который выглядит как новый, с гарантией и который стоит в разы дешевле, чем в магазине.
-
-<p>Примерные цены вы можете посмотреть при выборе Айфона ниже:</p>
-
-    <form id="selection-form">
-        <select id="model">
-            <option value="">Какой нужен айфон</option>
-            <option value="11 - 70.000тг">11 - 70.000тг</option>
-            <option value="11 pro - 95.000тг">11 pro - 95.000тг</option>
-            <option value="11 pro max - 110.000тг">11 pro max - 110.000т</option>
-            <option value="12 - 135.000тг">12 - 135.000тг</option>
-            <option value="12 mini - 110.000тг">12 mini - 110.000тг</option>
-            <option value="12 pro - 155.000тг">12 pro - 155.000тг</option>
-            <option value="12 pro max - 180.000тг">12 pro max - 180.000тг</option>
-            <option value="13 - 175.000тг">13 - 175.000тг</option>
-            <option value="13 mini - 165.000тг">13 mini - 165.000тг</option>
-            <option value="13 pro - 230.000тг">13 pro - 230.000тг</option>
-            <option value="13 pro max - 250.000тг">13 pro max - 250.000тг</option>
-            <option value="14 - 260.000тг">14 - 260.000тг</option>
-            <option value="14 plus - 300.000тг">14 plus - 300.000тг</option>
-            <option value="14 pro - 380.000тг">14 pro - 380.000тг</option>
-            <option value="14 pro max 435.000тг">14 pro max 435.000тг</option>
-        </select>
-        
-        <select id="memory">
-            <option value="">Какой нужен объем</option>
-            <option value="64 ГБ">64 ГБ</option>
-            <option value="128 ГБ">128 ГБ</option>
-            <option value="256 ГБ">256 ГБ</option>
-        </select>
-        
-        <select id="city">
-            <option value="">С какого вы города</option>
-            <option value="Москва">Москва</option>
-            <option value="Санкт-Петербург">Санкт-Петербург</option>
-            <!-- Добавьте другие города -->
-        </select>
-        
-        <button id="submit-button" type="button" onclick="redirectToWhatsApp()">Подобрать</button>
-        <div class="error-message" id="error-message">Не все параметры выбраны</div>
-    </form>
-
-    <script>
-        function redirectToWhatsApp() {
-            const model = document.getElementById('model').value;
-            const memory = document.getElementById('memory').value;
-            const city = document.getElementById('city').value;
-            const phoneNumber = "ваш_номер_телефона"; // замените на ваш номер
-
-            const errorMessage = document.getElementById('error-message');
-            if (!model || !memory || !city) {
-                errorMessage.style.display = 'block'; // Показываем сообщение об ошибке
-            } else {
-                errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
-                const message = `Я выбрал модель ${model}, объем памяти ${memory} и город ${city}.`;
-                const url = `https://wa.me/+7779864076?text=${encodeURIComponent(message)}`;
-                window.location.href = url;
-            }
-        }
-    </script>
-</body>
-</html>
+    <h1>Выберите ваш идеальный

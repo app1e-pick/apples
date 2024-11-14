@@ -121,8 +121,8 @@
                 errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
                 
                 // Извлекаем стоимость iPhone из выбранной модели
-                const priceMatch = model.match(/(\d+)\s*тг/);
-                const iphonePrice = priceMatch ? parseInt(priceMatch[1]) : 0;
+                const priceMatch = model.split(' - ')[1]; // разделяем строку по " - " и берем вторую часть
+                const iphonePrice = priceMatch ? parseInt(priceMatch.replace(/\D/g, '')) : 0; // удаляем все нецифровые символы и конвертируем в число
                 const serviceFee = 8000;
                 const totalPrice = iphonePrice + serviceFee;
 

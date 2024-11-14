@@ -46,6 +46,12 @@
             display: inline-block;
             max-width: 90%;
         }
+        .additional-info {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            font-weight: normal;
+        }
     </style>
 </head>
 <body>
@@ -94,6 +100,10 @@
         </select>
         
         <button id="submit-button" type="button" onclick="redirectToWhatsApp()">Подобрать</button>
+
+        <!-- Текст о стоимости услуги -->
+        <p class="additional-info">Прибавляйте к стоимости айфона 10 тыс тенге за услугу подбора</p>
+
         <div class="error-message" id="error-message">Не все параметры выбраны</div>
     </form>
 
@@ -117,3 +127,4 @@
     </script>
 </body>
 </html>
+

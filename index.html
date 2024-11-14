@@ -66,21 +66,21 @@
     <form id="selection-form">
         <select id="model">
             <option value="">Какой нужен айфон</option>
-            <option value="11 - 70.000тг">11 - 70.000тг</option>
-            <option value="11 pro - 95.000тг">11 pro - 95.000тг</option>
-            <option value="11 pro max - 110.000тг">11 pro max - 110.000т</option>
-            <option value="12 - 115.000тг">12 - 115.000тг</option>
-            <option value="12 mini - 82.000тг">12 mini - 82.000тг</option>
-            <option value="12 pro - 135.000тг">12 pro - 135.000тг</option>
-            <option value="12 pro max - 180.000тг">12 pro max - 180.000тг</option>
-            <option value="13 - 175.000тг">13 - 175.000тг</option>
-            <option value="13 mini - 165.000тг">13 mini - 165.000тг</option>
-            <option value="13 pro - 230.000тг">13 pro - 230.000тг</option>
-            <option value="13 pro max - 250.000тг">13 pro max - 250.000тг</option>
-            <option value="14 - 260.000тг">14 - 260.000тг</option>
-            <option value="14 plus - 300.000тг">14 plus - 300.000тг</option>
-            <option value="14 pro - 380.000тг">14 pro - 380.000тг</option>
-            <option value="14 pro max 435.000тг">14 pro max 435.000тг</option>
+            <option value="11 - 70000">11 - 70.000тг</option>
+            <option value="11 pro - 95000">11 pro - 95.000тг</option>
+            <option value="11 pro max - 110000">11 pro max - 110.000т</option>
+            <option value="12 - 115000">12 - 115.000тг</option>
+            <option value="12 mini - 82000">12 mini - 82.000тг</option>
+            <option value="12 pro - 135000">12 pro - 135.000тг</option>
+            <option value="12 pro max - 180000">12 pro max - 180.000тг</option>
+            <option value="13 - 175000">13 - 175.000тг</option>
+            <option value="13 mini - 165000">13 mini - 165.000тг</option>
+            <option value="13 pro - 230000">13 pro - 230.000тг</option>
+            <option value="13 pro max - 250000">13 pro max - 250.000тг</option>
+            <option value="14 - 260000">14 - 260.000тг</option>
+            <option value="14 plus - 300000">14 plus - 300.000тг</option>
+            <option value="14 pro - 380000">14 pro - 380.000тг</option>
+            <option value="14 pro max 435000">14 pro max 435.000тг</option>
         </select>
         
         <select id="memory">
@@ -93,13 +93,13 @@
         <select id="city">
             <option value="">С какого вы города</option>
             <option value="Алматы">Алматы</option>
-<option value="Астана">Астана</option>
-<option value="Шымкент">Шымкент</option>
-<option value="Актобе">Актобе</option>
-<option value="Караганда">Караганда</option>
-<option value="Тараз">Тараз</option>
-<option value="Павлодар">Павлодар</option>
-<option value="Усть-Каменогорск">Усть-Каменогорск</option>
+            <option value="Астана">Астана</option>
+            <option value="Шымкент">Шымкент</option>
+            <option value="Актобе">Актобе</option>
+            <option value="Караганда">Караганда</option>
+            <option value="Тараз">Тараз</option>
+            <option value="Павлодар">Павлодар</option>
+            <option value="Усть-Каменогорск">Усть-Каменогорск</option>
         </select>
         
         <button id="submit-button" type="button" onclick="redirectToWhatsApp()">Подобрать</button>
@@ -119,7 +119,16 @@
                 errorMessage.style.display = 'block'; // Показываем сообщение об ошибке
             } else {
                 errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
-                const message = `Я выбрал модель ${model}, объем памяти ${memory} и город ${city}.`;
+                
+                // Извлекаем стоимость iPhone из выбранной модели
+                const priceMatch = model.match(/(\d+)\s*тг/);
+                const iphonePrice = priceMatch ? parseInt(priceMatch[1]) : 0;
+                const serviceFee = 8000;
+                const totalPrice = iphonePrice + serviceFee;
+
+                // Формируем сообщение для WhatsApp
+                const message = `Я выбрал модель ${model}, объем памяти ${memory}, город ${city}. Стоимость айфона: ${iphonePrice}тг, услуга подбора: ${serviceFee}тг, общая стоимость: ${totalPrice}тг.`;
+
                 const url = `https://wa.me/+7779864076?text=${encodeURIComponent(message)}`;
                 window.location.href = url;
             }
@@ -127,4 +136,3 @@
     </script>
 </body>
 </html>
-

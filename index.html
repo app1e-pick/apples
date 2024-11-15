@@ -127,7 +127,7 @@
                 const totalPrice = iphonePrice + serviceFee;
 
                 // Формируем сообщение для WhatsApp
-                  const message = `Здравствуйте мы выбрали модель ${model}, объем памяти ${memory}, город ${city}, услуга орг подбора: ${serviceFee}тг, общая стоимость: ${totalPrice}тг.`;
+                  const message = `Здравствуйте мы выбрали модель ${model}тг, объем памяти ${memory}, город ${city}. Услуга подбора: ${serviceFee}тг, общая стоимость примерно: ${totalPrice}тг.`;
 
                 const url = `https://wa.me/+77779864076?text=${encodeURIComponent(message)}`;
                 window.location.href = url;

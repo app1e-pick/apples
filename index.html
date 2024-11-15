@@ -112,7 +112,7 @@
             const model = document.getElementById('model').value;
             const memory = document.getElementById('memory').value;
             const city = document.getElementById('city').value;
-            const phoneNumber = "ваш_номер_телефона"; // замените на ваш номер
+            const phoneNumber = "+77779864076"; // замените на ваш номер
 
             const errorMessage = document.getElementById('error-message');
             if (!model || !memory || !city) {
@@ -129,7 +129,7 @@
                 // Формируем сообщение для WhatsApp
                   const message = `Я выбрал модель ${model}, объем памяти ${memory}, город ${city}. Стоимость айфона: ${iphonePrice}тг, услуга подбора: ${serviceFee}тг, общая стоимость: ${totalPrice}тг.`;
 
-                const url = `https://wa.me/+7779864076?text=${encodeURIComponent(message)}`;
+                const url = `https://wa.me/+77779864076?text=${encodeURIComponent(message)}`;
                 window.location.href = url;
             }
         }
